@@ -1,0 +1,32 @@
+<div class="row">
+  <h1 class="title" style="margin-bottom: 1em;">Cart</h1>
+</div>
+<div class="row">
+  {{# each products }}
+    <ul class="list-group">
+      <li class="list-group-item" style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;align-items:center;">
+          <img src="{{ this.img_path }}" alt="{{ this.title }}" style="width: 60px; height: 80px;">
+          <p style="margin-left:10px;">{{this.title}}</p>
+        </div>
+        <div>
+          <p>${{this.price}}</p>
+          <div style="display:flex;align-items:center;">
+            <p>Quantity:</p>
+            <span style="margin-left:10px;" class="badge badge-primary badge-pill">1</span>
+          </div>
+        </div>
+        <a href="/cart/remove-to-cart/{{this.id}}" class="badge badge-primary badge-pill">X</a>
+      </li>
+    </ul>
+  {{/each}}
+
+
+
+</div>
+<div class="row">
+  <p>Total: ${{totalPrice}}</p>
+</div>
+<div class="row">
+  <a href="/cart/checkout/" class="btn btn-success" value="Checkout">Checkout</a>
+</div>
